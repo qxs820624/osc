@@ -36,13 +36,13 @@ import net.oschina.app.util.UIHelper;
 import net.oschina.app.util.XmlUtils;
 import net.oschina.app.widget.AvatarView;
 
-import org.apache.http.Header;
+import cz.msebera.android.httpclient.Header;
 
 import java.io.ByteArrayInputStream;
 import java.util.List;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 /**
  * @author FireAnt（http://my.oschina.net/LittleDY）
@@ -55,10 +55,10 @@ public class UserCenterFragment extends BaseFragment implements
 
     private static final Object FEMALE = "女";
 
-    @InjectView(R.id.error_layout)
+    @BindView(R.id.error_layout)
     EmptyLayout mEmptyView;
 
-    @InjectView(R.id.lv_user_active)
+    @BindView(R.id.lv_user_active)
     ListView mListView;
     private ImageView mIvAvatar, mIvGender;
     private TextView mTvName, mTvFollowing, mTvFollower, mTvSore,
@@ -127,7 +127,7 @@ public class UserCenterFragment extends BaseFragment implements
         mHisUid = args.getInt("his_id", 0);
         mHisName = args.getString("his_name");
         mUid = AppContext.getInstance().getLoginUid();
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
         initView(view);
 
         return view;

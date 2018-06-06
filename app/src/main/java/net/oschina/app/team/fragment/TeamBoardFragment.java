@@ -21,14 +21,14 @@ import net.oschina.app.util.UIHelper;
 import net.oschina.app.util.XmlUtils;
 import net.oschina.app.widget.AvatarView;
 
-import org.apache.http.Header;
+import cz.msebera.android.httpclient.Header;
 import org.kymjs.kjframe.utils.SystemTool;
 
 import java.io.ByteArrayInputStream;
 import java.util.Calendar;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
@@ -39,29 +39,29 @@ import butterknife.OnClick;
  */
 public class TeamBoardFragment extends BaseFragment {
 
-    @InjectView(R.id.team_myissue_waitdo)
+    @BindView(R.id.team_myissue_waitdo)
     View mRlWaitDo;
-    @InjectView(R.id.team_myissue_outdate)
+    @BindView(R.id.team_myissue_outdate)
     View mRlWill;
-    @InjectView(R.id.team_myissue_ing)
+    @BindView(R.id.team_myissue_ing)
     View mRlIng;
-    @InjectView(R.id.team_myissue_all)
+    @BindView(R.id.team_myissue_all)
     View mRlAll;
 
-    @InjectView(R.id.team_myissue_wait_num)
+    @BindView(R.id.team_myissue_wait_num)
     TextView mTvWaitDo;
-    @InjectView(R.id.team_myissue_outdate_num)
+    @BindView(R.id.team_myissue_outdate_num)
     TextView mTvOutdate;
-    @InjectView(R.id.team_myissue_ing_num)
+    @BindView(R.id.team_myissue_ing_num)
     TextView mTvIng;
-    @InjectView(R.id.team_myissue_all_num)
+    @BindView(R.id.team_myissue_all_num)
     TextView mTvAll;
 
-    @InjectView(R.id.iv_avatar)
+    @BindView(R.id.iv_avatar)
     AvatarView mIvAvatarView;
-    @InjectView(R.id.team_myissue_name)
+    @BindView(R.id.team_myissue_name)
     TextView mTvName;
-    @InjectView(R.id.team_myissue_date)
+    @BindView(R.id.team_myissue_date)
     TextView mTvDate;
 
     private Team team;
@@ -88,7 +88,7 @@ public class TeamBoardFragment extends BaseFragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View rootView = inflater.inflate(R.layout.fragment_team_board,
                 container, false);
-        ButterKnife.inject(this, rootView);
+        ButterKnife.bind(this, rootView);
         initData();
         initView(rootView);
         return rootView;

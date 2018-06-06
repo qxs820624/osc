@@ -27,12 +27,12 @@ import net.oschina.app.util.TypefaceUtils;
 import net.oschina.app.util.UIHelper;
 import net.oschina.app.util.XmlUtils;
 
-import org.apache.http.Header;
+import cz.msebera.android.httpclient.Header;
 import org.kymjs.kjframe.KJBitmap;
 
 import java.io.ByteArrayInputStream;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 
 /**
  * 摇一摇界面
@@ -40,24 +40,24 @@ import butterknife.InjectView;
  */
 public class ShakeActivity extends BaseActivity implements SensorEventListener {
 
-    @InjectView(R.id.shake_img)
+    @BindView(R.id.shake_img)
     ImageView mImgShake;
 
-    @InjectView(R.id.progress)
+    @BindView(R.id.progress)
     ProgressBar mProgress;
-    @InjectView(R.id.shake_bottom)
+    @BindView(R.id.shake_bottom)
     LinearLayout mLayoutBottom;
-    @InjectView(R.id.iv_face)
+    @BindView(R.id.iv_face)
     ImageView mImgHead;
-    @InjectView(R.id.tv_title)
+    @BindView(R.id.tv_title)
     TextView mTvTitle;
-    @InjectView(R.id.tv_description)
+    @BindView(R.id.tv_description)
     TextView mTvDetail;
-    @InjectView(R.id.tv_author)
+    @BindView(R.id.tv_author)
     TextView mTvAuthor;
-    @InjectView(R.id.tv_comment_count)
+    @BindView(R.id.tv_comment_count)
     TextView mTvCommentCount;
-    @InjectView(R.id.tv_time)
+    @BindView(R.id.tv_time)
     TextView mTvDate;
 
     private SensorManager sensorManager = null;

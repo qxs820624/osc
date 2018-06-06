@@ -1,31 +1,27 @@
 apply plugin: 'com.android.application'
 apply plugin: 'newlens'
+//apply plugin: 'com.jakewharton.butterknife'
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion '21.1.2'
-
+    compileSdkVersion project.projectCompileSdkVersion as int
+    buildToolsVersion  project.projectBuildToolsVersion
+    useLibrary 'org.apache.http.legacy'
+    packagingOptions {
+        // More than one file was found with OS independent path 加上这写代码
+        pickFirst 'META-INF/*'
+    }
     defaultConfig {
         applicationId "net.oschina.app"
         minSdkVersion 15
-        targetSdkVersion 22
-        versionCode 47
-        versionName "2.4"
+        targetSdkVersion project.projectTargetSdkVersion as int
+        versionCode 48
+        versionName "2.51"
     }
 
     signingConfigs {
         release {
         }
     }
-    buildTypes {
-        debug {
-            signingConfig signingConfigs.release
-        }
-        release {
-            signingConfig signingConfigs.release
-        }
-    }
-
 
     // 移除lint检查的error
     lintOptions {
@@ -34,16 +30,16 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':social_sdk_library_project')
-    compile 'com.android.support:appcompat-v7:22.2.0'
-    compile 'com.github.chrisbanes.photoview:library:1.2.3'
-    compile 'com.android.support:support-v4:22.2.0'
-    compile 'com.loopj.android:android-async-http:1.4.7'
-    compile 'com.jakewharton:butterknife:6.1.0'
-    compile 'com.networkbench.newlens.agent.android:nbs.newlens.agent:2.2.5'
-    compile 'com.google.zxing:core:3.2.0'
-    compile 'com.joanzapata.android:android-iconify:1.0.9'
+    implementation fileTree(include: ['*.jar','*.aar'], dir: 'libs')
+    // implementation project(':social_sdk_library_project')
+    implementation 'com.android.support:appcompat-v7:'.concat(project.projectSupportVersion)
+    implementation 'com.github.chrisbanes.photoview:library:1.2.4'
+    implementation 'com.android.support:support-v4:'.concat(project.projectSupportVersion)
+    implementation 'com.loopj.android:android-async-http:1.4.9'
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation 'com.networkbench.newlens.agent.android:nbs.newlens.agent:2.8.2'
+    implementation 'com.google.zxing:core:3.3.2'
 }
 
 // 配置签名文件以及相关的账号信息

@@ -17,9 +17,9 @@ import net.oschina.app.bean.OpenIdCatalog;
 import net.oschina.app.util.DialogHelp;
 import net.oschina.app.util.XmlUtils;
 
-import org.apache.http.Header;
+import cz.msebera.android.httpclient.Header;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
@@ -59,7 +59,7 @@ public class LoginBindActivityChooseActivity extends BaseActivity {
         }
     }
 
-    @InjectView(R.id.tv_openid_tip)
+    @BindView(R.id.tv_openid_tip)
     TextView tvOpenIdTip;
     private void initCatalogText() {
         if (catalog.equals(OpenIdCatalog.QQ)) {

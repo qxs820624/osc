@@ -12,18 +12,18 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 public class TeamSelectMemberAdapter extends BaseAdapter {
 
     static class ViewHolder {
-	@InjectView(R.id.iv_avatar)
+	@BindView(R.id.iv_avatar)
 	AvatarView aView;
-	@InjectView(R.id.tv_name)
+	@BindView(R.id.tv_name)
 	TextView name;
 
 	ViewHolder(View view) {
-	    ButterKnife.inject(this, view);
+	    ButterKnife.bind(this, view);
 	}
     }
 

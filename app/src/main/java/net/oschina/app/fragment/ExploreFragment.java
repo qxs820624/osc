@@ -14,7 +14,7 @@ import net.oschina.app.ui.ShakeActivity;
 import net.oschina.app.util.UIHelper;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 /**
  * 发现页面
@@ -26,22 +26,22 @@ import butterknife.InjectView;
 
 public class ExploreFragment extends BaseFragment {
 
-    @InjectView(R.id.rl_active)
+    @BindView(R.id.rl_active)
     View mRlActive;
 
-    @InjectView(R.id.rl_find_osc)
+    @BindView(R.id.rl_find_osc)
     View mFindOSCer;
 
-    @InjectView(R.id.rl_city)
+    @BindView(R.id.rl_city)
     View mCity;
 
-    @InjectView(R.id.rl_activities)
+    @BindView(R.id.rl_activities)
     View mActivities;
 
-    @InjectView(R.id.rl_scan)
+    @BindView(R.id.rl_scan)
     View mScan;
 
-    @InjectView(R.id.rl_shake)
+    @BindView(R.id.rl_shake)
     View mShake;
 
     @Override
@@ -49,7 +49,7 @@ public class ExploreFragment extends BaseFragment {
             Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_explore, null);
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
         initView(view);
         return view;
     }

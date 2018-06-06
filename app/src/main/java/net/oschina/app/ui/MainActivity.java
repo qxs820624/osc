@@ -11,9 +11,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -23,6 +25,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
+import android.widget.ImageView;
 import android.widget.TabHost.OnTabChangeListener;
 import android.widget.TabHost.TabContentFactory;
 import android.widget.TabHost.TabSpec;
@@ -48,11 +51,11 @@ import net.oschina.app.widget.BadgeView;
 import net.oschina.app.widget.MyFragmentTabHost;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 @SuppressLint("InflateParams")
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-public class MainActivity extends ActionBarActivity implements
+public class MainActivity extends AppCompatActivity implements
         NavigationDrawerFragment.NavigationDrawerCallbacks,
         OnTabChangeListener, BaseViewInterface, View.OnClickListener,
         OnTouchListener {
@@ -65,7 +68,7 @@ public class MainActivity extends ActionBarActivity implements
      */
     private NavigationDrawerFragment mNavigationDrawerFragment;
 
-    @InjectView(android.R.id.tabhost)
+    @BindView(android.R.id.tabhost)
     public MyFragmentTabHost mTabHost;
 
     private BadgeView mBvNotice;
@@ -111,8 +114,8 @@ public class MainActivity extends ActionBarActivity implements
      */
     private CharSequence mTitle;
 
-    @InjectView(R.id.quick_option_iv)
-    View mAddBt;
+    @BindView(R.id.quick_option_iv)
+    ImageView mAddBt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,7 +126,7 @@ public class MainActivity extends ActionBarActivity implements
             setTheme(R.style.AppBaseTheme_Light);
         }
         setContentView(R.layout.activity_main);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         initView();
         AppManager.getAppManager().addActivity(this);
 
@@ -132,6 +135,12 @@ public class MainActivity extends ActionBarActivity implements
         NBSAppAgent.setLicenseKey("0ed0cc66c5cb45c0a91c6fa932ca99ac")
                 .withCrashReportEnabled(true).withLocationServiceEnabled(true)
                 .start(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initView();
     }
 
     @Override
@@ -175,21 +184,49 @@ public class MainActivity extends ActionBarActivity implements
             }
         }
     }
-
+    FragmentManager manager;
+    private boolean isTabHostSet = false;
+    boolean hasDoubleClickExit = false;
+    FragmentTransaction transaction;
     @Override
     public void initView() {
-        mDoubleClickExit = new DoubleClickExitHelper(this);
-        mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.navigation_drawer);
-        mTitle = getTitle();
+
+        if (mAddBt == null)
+            mAddBt = (ImageView) findViewById(R.id.quick_option_iv);
+
+        if (mTabHost == null)
+            mTabHost = new MyFragmentTabHost(getBaseContext(),null);
+
+        if (mDoubleClickExit == null)
+            mDoubleClickExit = new DoubleClickExitHelper(this);
+        if (manager == null)
+            manager = this. getSupportFragmentManager();
+        if (transaction == null) {
+            transaction = manager.beginTransaction();
+            if (mNavigationDrawerFragment == null)
+                mNavigationDrawerFragment = new NavigationDrawerFragment();
+            transaction.add(R.id.navigation_drawer, mNavigationDrawerFragment);
+            transaction.commit();
+        }
+//        mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager()
+//                .findFragmentById(R.id.navigation_drawer);
+        if (mTitle == null)
+            mTitle = getTitle();
 
         // Set up the drawer.
-        mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
-                (DrawerLayout) findViewById(R.id.drawer_layout));
+        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawerLayout == null) return;
 
-        mTabHost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);
-        if (android.os.Build.VERSION.SDK_INT > 10) {
-            mTabHost.getTabWidget().setShowDividers(0);
+        mNavigationDrawerFragment.setUp(R.id.navigation_drawer, drawerLayout);
+
+        if (mTabHost != null) {
+            if (!isTabHostSet) {
+                mTabHost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);
+                if (android.os.Build.VERSION.SDK_INT > 10) {
+                    mTabHost.getTabWidget().setShowDividers(0);
+                }
+                isTabHostSet = true;
+            }
         }
 
         initTabs();
@@ -242,7 +279,11 @@ public class MainActivity extends ActionBarActivity implements
 
     }
 
+    private boolean hasInitTabs = false;
     private void initTabs() {
+        if (hasInitTabs)
+            return;
+        hasInitTabs = true;
         MainTab[] tabs = MainTab.values();
         final int size = tabs.length;
         for (int i = 0; i < size; i++) {
@@ -401,6 +442,7 @@ public class MainActivity extends ActionBarActivity implements
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
         // TODO Auto-generated method stub
         // 当 API Level > 11 调用这个方法可能导致奔溃（android.os.Build.VERSION.SDK_INT > 11）
     }

@@ -30,7 +30,7 @@ import net.oschina.app.util.TDevice;
 import net.oschina.app.util.ThemeSwitchUtils;
 import net.oschina.app.util.XmlUtils;
 
-import org.apache.http.Header;
+import cz.msebera.android.httpclient.Header;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -40,7 +40,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 @SuppressLint("NewApi")
 public abstract class BaseListFragment<T extends Entity> extends BaseFragment
@@ -49,15 +49,15 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
 
     public static final String BUNDLE_KEY_CATALOG = "BUNDLE_KEY_CATALOG";
 
-    @InjectView(R.id.swiperefreshlayout)
+    @BindView(R.id.swiperefreshlayout)
     protected SwipeRefreshLayout mSwipeRefreshLayout;
 
-    @InjectView(R.id.listview)
+    @BindView(R.id.listview)
     protected ListView mListView;
 
     protected ListBaseAdapter<T> mAdapter;
 
-    @InjectView(R.id.error_layout)
+    @BindView(R.id.error_layout)
     protected EmptyLayout mErrorLayout;
 
     protected int mStoreEmptyState = -1;
@@ -86,7 +86,7 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
         initView(view);
     }
 

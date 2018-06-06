@@ -8,7 +8,7 @@ import net.oschina.app.bean.Entity;
 import net.oschina.app.cache.CacheManager;
 import net.oschina.app.ui.empty.EmptyLayout;
 
-import org.apache.http.Header;
+import cz.msebera.android.httpclient.Header;
 
 import android.app.Activity;
 import android.content.Context;
@@ -71,7 +71,7 @@ public abstract class BeseHaveHeaderListFragment<T1 extends Entity, T2 extends S
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         // 通过注解绑定控件
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
         mListView.addHeaderView(initHeaderView());
         aty = getActivity();
         super.initView(view);

@@ -23,12 +23,12 @@ import net.oschina.app.util.StringUtils;
 import net.oschina.app.util.UIHelper;
 import net.oschina.app.util.XmlUtils;
 
-import org.apache.http.Header;
+import cz.msebera.android.httpclient.Header;
 
 import java.io.ByteArrayInputStream;
 import java.util.List;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 
 /**
  * Created by 火蚁 on 15/5/27.
@@ -37,10 +37,10 @@ public class FindUserActivity extends BaseActivity implements AdapterView.OnItem
 
     private SearchView mSearchView;
 
-    @InjectView(R.id.lv_list)
+    @BindView(R.id.lv_list)
     ListView mListView;
 
-    @InjectView(R.id.error_layout)
+    @BindView(R.id.error_layout)
     EmptyLayout mErrorLayout;
 
     private FindUserAdapter mAdapter;

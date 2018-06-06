@@ -55,7 +55,7 @@ import net.oschina.app.util.StringUtils;
 import net.oschina.app.util.UIHelper;
 import net.oschina.app.util.XmlUtils;
 
-import org.apache.http.Header;
+import cz.msebera.android.httpclient.Header;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -296,8 +296,9 @@ public final class CaptureActivity extends BaseActivity implements
         OSChinaApi.scanQrCodeLogin(url, new AsyncHttpResponseHandler() {
 
             @Override
-            public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
-                ResultBean result = XmlUtils.toBean(ResultBean.class, arg2);
+            public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, byte[] responseBody) {
+
+                ResultBean result = XmlUtils.toBean(ResultBean.class, responseBody);
                 if (result != null && result.getResult() != null
                         && result.getResult().OK()) {
                     AppContext.showToast(result.getResult().getErrorMessage());
@@ -364,9 +365,16 @@ public final class CaptureActivity extends BaseActivity implements
         showWaitDialog("正在签到...");
         AsyncHttpResponseHandler handler = new AsyncHttpResponseHandler() {
             @Override
-            public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+            public void onFailure(int statusCode, cz.msebera.android.httpclient.Header[] headers, byte[] responseBody, Throwable error) {
+                hideWaitDialog();
+                DialogHelp.getMessageDialog(CaptureActivity.this, error.getMessage()).show();
+            }
+
+            @Override
+            public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, byte[] responseBody) {
+
                 try {
-                    SingInResult res = SingInResult.parse(new String(arg2));
+                    SingInResult res = SingInResult.parse(new String(responseBody));
                     if (res.isOk()) {
                         DialogHelp.getMessageDialog(CaptureActivity.this, res.getMessage()).show();
                     } else {
@@ -374,15 +382,8 @@ public final class CaptureActivity extends BaseActivity implements
                     }
                 } catch (AppException e) {
                     e.printStackTrace();
-                    onFailure(arg0, arg1, arg2, e);
+                    onFailure(statusCode, headers, responseBody, e);
                 }
-            }
-
-            @Override
-            public void onFailure(int arg0, Header[] arg1, byte[] arg2,
-                                  Throwable arg3) {
-                hideWaitDialog();
-                DialogHelp.getMessageDialog(CaptureActivity.this, arg3.getMessage()).show();
             }
 
             @Override

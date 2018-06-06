@@ -16,7 +16,7 @@ import net.oschina.app.ui.empty.EmptyLayout;
 import net.oschina.app.util.UIHelper;
 import net.oschina.app.util.XmlUtils;
 
-import org.apache.http.Header;
+import cz.msebera.android.httpclient.Header;
 import org.kymjs.kjframe.http.KJAsyncTask;
 
 import android.app.Activity;
@@ -30,7 +30,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
@@ -42,11 +42,11 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
  */
 public class TeamMemberFragment extends BaseFragment {
 
-    @InjectView(R.id.fragment_team_grid)
+    @BindView(R.id.fragment_team_grid)
     GridView mGrid;
-    @InjectView(R.id.fragment_team_empty)
+    @BindView(R.id.fragment_team_empty)
     EmptyLayout mEmpty;
-    @InjectView(R.id.swiperefreshlayout)
+    @BindView(R.id.swiperefreshlayout)
     SwipeRefreshLayout mSwipeRefreshLayout;
 
     private Activity aty;
@@ -79,7 +79,7 @@ public class TeamMemberFragment extends BaseFragment {
         View rootView = inflater.inflate(R.layout.fragment_team_member,
                 container, false);
         aty = getActivity();
-        ButterKnife.inject(this, rootView);
+        ButterKnife.bind(this, rootView);
 
         TeamMemberList list = (TeamMemberList) CacheManager.readObject(aty,
                 TEAM_MEMBER_DATA);

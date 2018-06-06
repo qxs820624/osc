@@ -27,7 +27,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 import com.fourmob.datetimepicker.date.DatePickerDialog;
 import com.fourmob.datetimepicker.date.DatePickerDialog.OnDateSetListener;
@@ -38,15 +38,15 @@ public class TeamDiaryFragment extends BaseFragment implements
     public static String DIARYDETAIL_KEY = "team_diary_detail_key";
     public static String TEAMID_KEY = "team_diary_teamid_key";
 
-    @InjectView(R.id.team_diary_pager)
+    @BindView(R.id.team_diary_pager)
     ViewPager mPager;
-    @InjectView(R.id.team_diary_pager_title)
+    @BindView(R.id.team_diary_pager_title)
     TextView mTvTitle;
-    @InjectView(R.id.team_diary_pager_calendar)
+    @BindView(R.id.team_diary_pager_calendar)
     ImageView mImgCalendar;
-    @InjectView(R.id.team_diary_pager_left)
+    @BindView(R.id.team_diary_pager_left)
     ImageView mImgLeft;
-    @InjectView(R.id.team_diary_pager_right)
+    @BindView(R.id.team_diary_pager_right)
     ImageView mImgRight;
 
     private Activity aty;
@@ -63,7 +63,7 @@ public class TeamDiaryFragment extends BaseFragment implements
         super.onCreateView(inflater, container, savedInstanceState);
         aty = getActivity();
         View view = View.inflate(aty, R.layout.fragment_team_diarypager, null);
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
         initData();
         initView(view);
         return view;

@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -25,7 +25,8 @@ import net.oschina.app.util.TDevice;
 import net.oschina.app.util.UIHelper;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
+import butterknife.Unbinder;
 
 /**
  * 侧滑菜单界面
@@ -58,27 +59,30 @@ public class NavigationDrawerFragment extends BaseFragment implements
     private int mCurrentSelectedPosition = 0;
     private boolean mFromSavedInstanceState;
 
-    @InjectView(R.id.menu_item_quests)
+    @BindView(R.id.menu_item_quests)
     View mMenu_item_quests;
 
-    @InjectView(R.id.menu_item_opensoft)
+    @BindView(R.id.menu_item_opensoft)
     View mMenu_item_opensoft;
 
-    @InjectView(R.id.menu_item_blog)
+    @BindView(R.id.menu_item_blog)
     View mMenu_item_blog;
 
-    @InjectView(R.id.menu_item_gitapp)
+    @BindView(R.id.menu_item_gitapp)
     View mMenu_item_gitapp;
 
-    @InjectView(R.id.menu_item_setting)
+    @BindView(R.id.menu_item_setting)
     View mMenu_item_setting;
 
-    @InjectView(R.id.menu_item_theme)
+    @BindView(R.id.menu_item_theme)
     View mMenu_item_theme;
 
+    private Activity activity;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        activity = getActivity();
 
         if (savedInstanceState != null) {
             mCurrentSelectedPosition = savedInstanceState
@@ -93,15 +97,17 @@ public class NavigationDrawerFragment extends BaseFragment implements
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setHasOptionsMenu(true);
+        activity = getActivity();
     }
-
+    Unbinder  unbinder;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         mDrawerListView = inflater.inflate(R.layout.fragment_navigation_drawer,
                 container, false);
+        activity = getActivity();
         mDrawerListView.setOnClickListener(this);
-        ButterKnife.inject(this, mDrawerListView);
+        unbinder =  ButterKnife.bind(this, mDrawerListView);
         initView(mDrawerListView);
         initData();
         return mDrawerListView;
@@ -145,10 +151,12 @@ public class NavigationDrawerFragment extends BaseFragment implements
                 break;
 
         }
+        if (mDrawerLayout != null)
         mDrawerLayout.postDelayed(new Runnable() {
 
             @Override
             public void run() {
+                if (mDrawerLayout != null)
                 mDrawerLayout.closeDrawers();
             }
         }, 800);
@@ -207,7 +215,8 @@ public class NavigationDrawerFragment extends BaseFragment implements
      * @param drawerLayout The DrawerLayout containing this fragment's UI.
      */
     public void setUp(int fragmentId, DrawerLayout drawerLayout) {
-        mFragmentContainerView = getActivity().findViewById(fragmentId);
+        if (activity == null) return;
+        mFragmentContainerView = activity.findViewById(fragmentId);
         mDrawerLayout = drawerLayout;
 
         // set a custom shadow that overlays the main content when the drawer
@@ -246,6 +255,7 @@ public class NavigationDrawerFragment extends BaseFragment implements
     }
 
     public void openDrawerMenu() {
+        if (mDrawerLayout != null)
         mDrawerLayout.openDrawer(mFragmentContainerView);
     }
 
@@ -295,7 +305,7 @@ public class NavigationDrawerFragment extends BaseFragment implements
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (mDrawerToggle.onOptionsItemSelected(item)) {
+        if (mDrawerToggle != null && mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
 
@@ -303,7 +313,7 @@ public class NavigationDrawerFragment extends BaseFragment implements
     }
 
     private ActionBar getActionBar() {
-        return ((ActionBarActivity) getActivity()).getSupportActionBar();
+        return ((AppCompatActivity) getActivity()).getSupportActionBar();
     }
 
     public interface NavigationDrawerCallbacks {

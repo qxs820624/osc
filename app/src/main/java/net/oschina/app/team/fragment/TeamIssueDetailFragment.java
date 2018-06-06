@@ -43,12 +43,12 @@ import net.oschina.app.util.ViewUtils;
 import net.oschina.app.util.XmlUtils;
 import net.oschina.app.widget.AvatarView;
 
-import org.apache.http.Header;
+import cz.msebera.android.httpclient.Header;
 
 import java.util.List;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
@@ -66,34 +66,34 @@ public class TeamIssueDetailFragment extends BaseFragment implements
 
     private TeamIssueCatalog mCatalog;
 
-    @InjectView(R.id.content)
+    @BindView(R.id.content)
     View mContent;
-    @InjectView(R.id.error_layout)
+    @BindView(R.id.error_layout)
     EmptyLayout mErrorLayout;
 
-    @InjectView(R.id.ll_issue_project)
+    @BindView(R.id.ll_issue_project)
     View mProjectView;
-    @InjectView(R.id.tv_issue_project)
+    @BindView(R.id.tv_issue_project)
     TextView mTvProject;
-    @InjectView(R.id.tv_issue_state_title)
+    @BindView(R.id.tv_issue_state_title)
     TextView mTvStateTitle;
-    @InjectView(R.id.tv_issue_title)
+    @BindView(R.id.tv_issue_title)
     TextView mTvTitle;
-    @InjectView(R.id.tv_issue_touser)
+    @BindView(R.id.tv_issue_touser)
     TextView mTvToUser;
-    @InjectView(R.id.tv_issue_cooperate_user)
+    @BindView(R.id.tv_issue_cooperate_user)
     TextView mTvCooperateUser;
-    @InjectView(R.id.tv_issue_die_time)
+    @BindView(R.id.tv_issue_die_time)
     TextView mTvDieTime;
-    @InjectView(R.id.tv_issue_state)
+    @BindView(R.id.tv_issue_state)
     TextView mTvState;
-    @InjectView(R.id.ll_issue_labels)
+    @BindView(R.id.ll_issue_labels)
     LinearLayout mLLlabels;
-    @InjectView(R.id.tv_issue_attachments)
+    @BindView(R.id.tv_issue_attachments)
     TextView mTvAttachments;
-    @InjectView(R.id.tv_issue_relations)
+    @BindView(R.id.tv_issue_relations)
     TextView mTvRelations;
-    @InjectView(R.id.tv_issue_child)
+    @BindView(R.id.tv_issue_child)
     TextView mTvIssueChild;
 
     @Override
@@ -121,7 +121,7 @@ public class TeamIssueDetailFragment extends BaseFragment implements
 
     @Override
     public void initView(View view) {
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
 
         TypefaceUtils.setTypeface((TextView) view
                 .findViewById(R.id.tv_issue_fa_touser));
@@ -433,7 +433,7 @@ public class TeamIssueDetailFragment extends BaseFragment implements
         }).show();
     }
 
-    @InjectView(R.id.ll_issue_childs)
+    @BindView(R.id.ll_issue_childs)
     LinearLayout mLLChildIssues;
 
     private void setChildIssues(List<TeamIssue> list) {
@@ -526,7 +526,7 @@ public class TeamIssueDetailFragment extends BaseFragment implements
         }
     }
 
-    @InjectView(R.id.ll_issue_comments)
+    @BindView(R.id.ll_issue_comments)
     LinearLayout mLLComments;
 
     // 请求任务的评论

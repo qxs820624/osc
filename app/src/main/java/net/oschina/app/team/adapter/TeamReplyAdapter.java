@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 /**
  * 评论适配器 TeamReply.java
@@ -99,21 +99,21 @@ public class TeamReplyAdapter extends ListBaseAdapter<TeamReply> {
 
     static class ViewHolder {
 
-	@InjectView(R.id.iv_avatar)
+	@BindView(R.id.iv_avatar)
 	AvatarView avatar;
-	@InjectView(R.id.tv_name)
+	@BindView(R.id.tv_name)
 	TextView name;
-	@InjectView(R.id.tv_time)
+	@BindView(R.id.tv_time)
 	TextView time;
-	@InjectView(R.id.tv_from)
+	@BindView(R.id.tv_from)
 	TextView from;
-	@InjectView(R.id.tv_content)
+	@BindView(R.id.tv_content)
 	TweetTextView content;
-	@InjectView(R.id.ly_relies)
+	@BindView(R.id.ly_relies)
 	LinearLayout relies;
 
 	public ViewHolder(View view) {
-	    ButterKnife.inject(this, view);
+	    ButterKnife.bind(this, view);
 	}
     }
 }

@@ -34,7 +34,7 @@ import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 /**
  * 语音动弹发布界面
@@ -44,17 +44,17 @@ import butterknife.InjectView;
  */
 public class TweetRecordFragment extends BaseFragment {
 
-    @InjectView(R.id.tweet_layout_record)
+    @BindView(R.id.tweet_layout_record)
     RelativeLayout mLayout;
-    @InjectView(R.id.tweet_btn_record)
+    @BindView(R.id.tweet_btn_record)
     RecordButton mBtnRecort;
-    @InjectView(R.id.tweet_time_record)
+    @BindView(R.id.tweet_time_record)
     TextView mTvTime;
-    @InjectView(R.id.tweet_text_record)
+    @BindView(R.id.tweet_text_record)
     TextView mTvInputLen;
-    @InjectView(R.id.tweet_edit_record)
+    @BindView(R.id.tweet_edit_record)
     EditText mEtSpeech;
-    @InjectView(R.id.tweet_img_volume)
+    @BindView(R.id.tweet_img_volume)
     ImageView mImgVolume;
 
     public static int MAX_LEN = 160;
@@ -150,7 +150,7 @@ public class TweetRecordFragment extends BaseFragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View rootView = inflater.inflate(R.layout.item_tweet_pub_record,
                 container, false);
-        ButterKnife.inject(this, rootView);
+        ButterKnife.bind(this, rootView);
         initView(rootView);
         initData();
         return rootView;

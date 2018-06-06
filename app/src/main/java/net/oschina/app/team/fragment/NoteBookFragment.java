@@ -22,7 +22,7 @@ import net.oschina.app.widget.KJDragGridView;
 import net.oschina.app.widget.KJDragGridView.OnDeleteListener;
 import net.oschina.app.widget.KJDragGridView.OnMoveListener;
 
-import org.apache.http.Header;
+import cz.msebera.android.httpclient.Header;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -43,7 +43,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
@@ -55,13 +55,13 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 public class NoteBookFragment extends BaseFragment implements
         OnItemClickListener, OnRefreshListener {
 
-    @InjectView(R.id.frag_note_list)
+    @BindView(R.id.frag_note_list)
     KJDragGridView mGrid;
-    @InjectView(R.id.frag_note_trash)
+    @BindView(R.id.frag_note_trash)
     ImageView mImgTrash;
-    @InjectView(R.id.swiperefreshlayout)
+    @BindView(R.id.swiperefreshlayout)
     SwipeRefreshLayout mSwipeRefreshLayout;
-    @InjectView(R.id.error_layout)
+    @BindView(R.id.error_layout)
     EmptyLayout mEmptyLayout;
 
     private NoteDatabase noteDb;
@@ -99,7 +99,7 @@ public class NoteBookFragment extends BaseFragment implements
         View rootView = inflater.inflate(R.layout.fragment_note, container,
                 false);
         aty = getActivity();
-        ButterKnife.inject(this, rootView);
+        ButterKnife.bind(this, rootView);
         initData();
         initView(rootView);
         return rootView;

@@ -37,14 +37,14 @@ import net.oschina.app.widget.MyLinkMovementMethod;
 import net.oschina.app.widget.MyURLSpan;
 import net.oschina.app.widget.TweetTextView;
 
-import org.apache.http.Header;
+import cz.msebera.android.httpclient.Header;
 import org.kymjs.kjframe.KJBitmap;
 import org.kymjs.kjframe.bitmap.BitmapCallBack;
 import org.kymjs.kjframe.bitmap.BitmapHelper;
 import org.kymjs.kjframe.utils.DensityUtils;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 /**
  * @author HuangWenwei
@@ -54,29 +54,29 @@ import butterknife.InjectView;
 public class TweetAdapter extends ListBaseAdapter<Tweet> {
 
     static class ViewHolder {
-        @InjectView(R.id.tv_tweet_name)
+        @BindView(R.id.tv_tweet_name)
         TextView author;
-        @InjectView(R.id.tv_tweet_time)
+        @BindView(R.id.tv_tweet_time)
         TextView time;
-        @InjectView(R.id.tweet_item)
+        @BindView(R.id.tweet_item)
         TweetTextView content;
-        @InjectView(R.id.tv_tweet_comment_count)
+        @BindView(R.id.tv_tweet_comment_count)
         TextView commentcount;
-        @InjectView(R.id.tv_tweet_platform)
+        @BindView(R.id.tv_tweet_platform)
         TextView platform;
-        @InjectView(R.id.iv_tweet_face)
+        @BindView(R.id.iv_tweet_face)
         AvatarView face;
-        @InjectView(R.id.iv_tweet_image)
+        @BindView(R.id.iv_tweet_image)
         ImageView image;
-        @InjectView(R.id.tv_like_state)
+        @BindView(R.id.tv_like_state)
         TextView tvLikeState;
-        @InjectView(R.id.tv_del)
+        @BindView(R.id.tv_del)
         TextView del;
-        @InjectView(R.id.tv_likeusers)
+        @BindView(R.id.tv_likeusers)
         TextView likeUsers;
 
         public ViewHolder(View view) {
-            ButterKnife.inject(this, view);
+            ButterKnife.bind(this, view);
         }
     }
 

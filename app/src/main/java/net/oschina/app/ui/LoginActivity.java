@@ -15,11 +15,10 @@ import net.oschina.app.util.TDevice;
 import net.oschina.app.util.TLog;
 import net.oschina.app.util.XmlUtils;
 
-import org.apache.http.Header;
+import cz.msebera.android.httpclient.Header;
 import org.apache.http.client.CookieStore;
 import org.apache.http.client.protocol.ClientContext;
 import org.apache.http.cookie.Cookie;
-import org.apache.http.protocol.HttpContext;
 import org.kymjs.kjframe.http.HttpConfig;
 
 import android.app.ProgressDialog;
@@ -32,8 +31,9 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
+import cz.msebera.android.httpclient.protocol.HttpContext;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -64,10 +64,10 @@ public class LoginActivity extends BaseActivity implements IUiListener {
     private static final String BUNDLE_KEY_REQUEST_CODE = "BUNDLE_KEY_REQUEST_CODE";
     protected static final String TAG = LoginActivity.class.getSimpleName();
 
-    @InjectView(R.id.et_username)
+    @BindView(R.id.et_username)
     EditText mEtUserName;
 
-    @InjectView(R.id.et_password)
+    @BindView(R.id.et_password)
     EditText mEtPassword;
 
     private final int requestCode = REQUEST_CODE_INIT;

@@ -7,7 +7,7 @@ import net.oschina.app.base.BaseFragment;
 import net.oschina.app.util.StringUtils;
 import net.oschina.app.util.TDevice;
 
-import org.apache.http.Header;
+import cz.msebera.android.httpclient.Header;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -18,14 +18,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
 public class FeedBackFragment extends BaseFragment {
-    @InjectView(R.id.et_feedback)
+    @BindView(R.id.et_feedback)
     EditText mEtContent;
-    @InjectView(R.id.et_contact)
+    @BindView(R.id.et_contact)
     EditText mEtContact;
 
     @Override
@@ -33,7 +33,7 @@ public class FeedBackFragment extends BaseFragment {
             Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_feedback, null);
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
         initView(view);
         return view;
     }

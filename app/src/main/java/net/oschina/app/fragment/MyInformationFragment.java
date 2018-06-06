@@ -24,7 +24,7 @@ import net.oschina.app.util.XmlUtils;
 import net.oschina.app.widget.AvatarView;
 import net.oschina.app.widget.BadgeView;
 
-import org.apache.http.Header;
+import cz.msebera.android.httpclient.Header;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -43,7 +43,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
@@ -58,31 +58,31 @@ public class MyInformationFragment extends BaseFragment {
 
     public static final int sChildView = 9; // 在没有加入TeamList控件时rootview有多少子布局
 
-    @InjectView(R.id.iv_avatar)
+    @BindView(R.id.iv_avatar)
     AvatarView mIvAvatar;
-    @InjectView(R.id.iv_gender)
+    @BindView(R.id.iv_gender)
     ImageView mIvGender;
-    @InjectView(R.id.tv_name)
+    @BindView(R.id.tv_name)
     TextView mTvName;
-    @InjectView(R.id.tv_score)
+    @BindView(R.id.tv_score)
     TextView mTvScore;
-    @InjectView(R.id.tv_favorite)
+    @BindView(R.id.tv_favorite)
     TextView mTvFavorite;
-    @InjectView(R.id.tv_following)
+    @BindView(R.id.tv_following)
     TextView mTvFollowing;
-    @InjectView(R.id.tv_follower)
+    @BindView(R.id.tv_follower)
     TextView mTvFans;
-    @InjectView(R.id.tv_mes)
+    @BindView(R.id.tv_mes)
     View mMesView;
-    @InjectView(R.id.error_layout)
+    @BindView(R.id.error_layout)
     EmptyLayout mErrorLayout;
-    @InjectView(R.id.iv_qr_code)
+    @BindView(R.id.iv_qr_code)
     ImageView mQrCode;
-    @InjectView(R.id.ll_user_container)
+    @BindView(R.id.ll_user_container)
     View mUserContainer;
-    @InjectView(R.id.rl_user_unlogin)
+    @BindView(R.id.rl_user_unlogin)
     View mUserUnLogin;
-    @InjectView(R.id.rootview)
+    @BindView(R.id.rootview)
     LinearLayout rootView;
 
     private static BadgeView mMesCount;
@@ -193,7 +193,7 @@ public class MyInformationFragment extends BaseFragment {
             @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_my_information,
                 container, false);
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
         initView(view);
         return view;
     }

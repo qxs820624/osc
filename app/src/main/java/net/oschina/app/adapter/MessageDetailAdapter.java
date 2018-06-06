@@ -16,7 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 public class MessageDetailAdapter extends ListBaseAdapter<Comment> {
 
@@ -79,15 +79,15 @@ public class MessageDetailAdapter extends ListBaseAdapter<Comment> {
 
     static class ViewHolder {
         int type;
-        @InjectView(R.id.iv_avatar)
+        @BindView(R.id.iv_avatar)
         AvatarView avatar;
-        @InjectView(R.id.tv_time)
+        @BindView(R.id.tv_time)
         TextView time;
-        @InjectView(R.id.tv_content)
+        @BindView(R.id.tv_content)
         TweetTextView content;
 
         ViewHolder(View view) {
-            ButterKnife.inject(this, view);
+            ButterKnife.bind(this, view);
         }
     }
 }

@@ -7,14 +7,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 public class SoftwareCatalogListAdapter extends ListBaseAdapter<SoftwareType> {
 	
 	static class ViewHold{
-		@InjectView(R.id.tv_software_catalog_name)TextView name;
+		@BindView(R.id.tv_software_catalog_name)TextView name;
 		public ViewHold(View view) {
-			ButterKnife.inject(this,view);
+			ButterKnife.bind(this,view);
 		}
 	}
 

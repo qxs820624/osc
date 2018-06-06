@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 /**
  * 团队项目适配器
@@ -42,13 +42,13 @@ public class TeamProjectMemberAdapter extends ListBaseAdapter<TeamMember> {
     }
 
     public static class ViewHolder {
-	@InjectView(R.id.iv_avatar)
+	@BindView(R.id.iv_avatar)
 	AvatarView avatar;
-	@InjectView(R.id.tv_name)
+	@BindView(R.id.tv_name)
 	TextView name;
 
 	public ViewHolder(View view) {
-	    ButterKnife.inject(this, view);
+	    ButterKnife.bind(this, view);
 	}
     }
 

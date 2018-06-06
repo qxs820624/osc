@@ -25,7 +25,7 @@ import org.kymjs.kjframe.bitmap.BitmapConfig;
 import java.io.File;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 /**
  * 系统设置界面
@@ -35,13 +35,13 @@ import butterknife.InjectView;
  */
 public class SettingsFragment extends BaseFragment {
 
-    @InjectView(R.id.tb_loading_img)
+    @BindView(R.id.tb_loading_img)
     ToggleButton mTbLoadImg;
-    @InjectView(R.id.tv_cache_size)
+    @BindView(R.id.tv_cache_size)
     TextView mTvCacheSize;
-    @InjectView(R.id.setting_logout)
+    @BindView(R.id.setting_logout)
     TextView mTvExit;
-    @InjectView(R.id.tb_double_click_exit)
+    @BindView(R.id.tb_double_click_exit)
     ToggleButton mTbDoubleClickExit;
 
     @Override
@@ -49,7 +49,7 @@ public class SettingsFragment extends BaseFragment {
             @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_settings, container,
                 false);
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
         initView(view);
         initData();
         return view;

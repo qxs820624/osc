@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 /**
  * TeamIssueCatalogAdapter.java
@@ -49,15 +49,15 @@ public class TeamIssueCatalogAdapter extends ListBaseAdapter<TeamIssueCatalog> {
 
     static class ViewHolder {
 
-	@InjectView(R.id.tv_team_issue_catalog_title)
+	@BindView(R.id.tv_team_issue_catalog_title)
 	TextView title;
-	@InjectView(R.id.tv_team_issue_catalog_desc)
+	@BindView(R.id.tv_team_issue_catalog_desc)
 	TextView description;
-	@InjectView(R.id.tv_team_issue_catalog_state)
+	@BindView(R.id.tv_team_issue_catalog_state)
 	TextView state;
 
 	public ViewHolder(View view) {
-	    ButterKnife.inject(this, view);
+	    ButterKnife.bind(this, view);
 	}
     }
 }

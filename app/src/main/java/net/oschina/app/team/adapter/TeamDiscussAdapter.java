@@ -12,7 +12,7 @@ import net.oschina.app.util.StringUtils;
 import net.oschina.app.widget.AvatarView;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 /**
  * team 讨论区帖子
@@ -24,24 +24,24 @@ public class TeamDiscussAdapter extends ListBaseAdapter<TeamDiscuss> {
 
     static class ViewHolder {
 
-        @InjectView(R.id.tv_title)
+        @BindView(R.id.tv_title)
         TextView title;
-        @InjectView(R.id.tv_description)
+        @BindView(R.id.tv_description)
         TextView description;
-        @InjectView(R.id.tv_author)
+        @BindView(R.id.tv_author)
         TextView author;
-        @InjectView(R.id.tv_date)
+        @BindView(R.id.tv_date)
         TextView time;
-        @InjectView(R.id.tv_count)
+        @BindView(R.id.tv_count)
         TextView comment_count;
-        @InjectView(R.id.tv_vote_up)
+        @BindView(R.id.tv_vote_up)
         TextView vote_up;
 
-        @InjectView(R.id.iv_face)
+        @BindView(R.id.iv_face)
         public AvatarView face;
 
         public ViewHolder(View view) {
-            ButterKnife.inject(this, view);
+            ButterKnife.bind(this, view);
         }
     }
 

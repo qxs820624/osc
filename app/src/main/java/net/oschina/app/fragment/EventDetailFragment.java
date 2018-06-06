@@ -29,40 +29,40 @@ import net.oschina.app.util.UIHelper;
 import net.oschina.app.util.URLsUtils;
 import net.oschina.app.util.XmlUtils;
 
-import org.apache.http.Header;
+import cz.msebera.android.httpclient.Header;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 
 /**
  * Created by 火蚁 on 15/5/28.
  */
 public class EventDetailFragment extends CommonDetailFragment<Post> {
 
-    @InjectView(R.id.tv_event_title)
+    @BindView(R.id.tv_event_title)
     TextView mTvTitle;
 
-    @InjectView(R.id.tv_event_start_time)
+    @BindView(R.id.tv_event_start_time)
     TextView mTvStartTime;
 
-    @InjectView(R.id.tv_event_end_time)
+    @BindView(R.id.tv_event_end_time)
     TextView mTvEndTime;
 
-    @InjectView(R.id.tv_event_spot)
+    @BindView(R.id.tv_event_spot)
     TextView mTvSpot;
 
-    @InjectView(R.id.rl_event_location)
+    @BindView(R.id.rl_event_location)
     View mLocation;
 
-    @InjectView(R.id.bt_event_attend)
+    @BindView(R.id.bt_event_attend)
     Button mBtAttend;// 出席人员
 
-    @InjectView(R.id.bt_event_apply)
+    @BindView(R.id.bt_event_apply)
     Button mBtEventApply;// 活动报名
 
-    @InjectView(R.id.tv_event_tip)
+    @BindView(R.id.tv_event_tip)
     TextView mEventTip;
 
     private EventApplyDialog mEventApplyDialog;

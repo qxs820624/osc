@@ -3,7 +3,7 @@ package net.oschina.app.base;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,7 +29,7 @@ import butterknife.ButterKnife;
  * @author FireAnt（http://my.oschina.net/LittleDY）
  * @created 2014年9月25日 上午11:30:15 引用自：tonlin
  */
-public abstract class BaseActivity extends ActionBarActivity implements
+public abstract class BaseActivity extends AppCompatActivity implements
         DialogControl, View.OnClickListener, BaseViewInterface {
     public static final String INTENT_ACTION_EXIT_APP = "INTENT_ACTION_EXIT_APP";
 
@@ -44,7 +44,6 @@ public abstract class BaseActivity extends ActionBarActivity implements
     protected void onDestroy() {
         super.onDestroy();
         TDevice.hideSoftKeyboard(getCurrentFocus());
-        ButterKnife.reset(this);
     }
 
     @Override
@@ -70,7 +69,7 @@ public abstract class BaseActivity extends ActionBarActivity implements
         }
 
         // 通过注解绑定控件
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
         init(savedInstanceState);
         initView();

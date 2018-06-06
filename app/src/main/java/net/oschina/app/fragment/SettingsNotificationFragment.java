@@ -12,21 +12,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 public class SettingsNotificationFragment extends BaseFragment {
 	
-	@InjectView(R.id.tb_accept) ToggleButton mTbAccept;
-	@InjectView(R.id.tb_voice) ToggleButton mTbVoice;
-	@InjectView(R.id.tb_vibration) ToggleButton mTbVibration;
-	@InjectView(R.id.tb_app_exit) ToggleButton mTbAppExit;
+	@BindView(R.id.tb_accept) ToggleButton mTbAccept;
+	@BindView(R.id.tb_voice) ToggleButton mTbVoice;
+	@BindView(R.id.tb_vibration) ToggleButton mTbVibration;
+	@BindView(R.id.tb_app_exit) ToggleButton mTbAppExit;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater,
 			@Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_settings_notifcation, container,
 				false);
-		ButterKnife.inject(this, view);
+		ButterKnife.bind(this, view);
 		initView(view);
 		initData();
 		return view;

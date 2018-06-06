@@ -8,8 +8,9 @@ import net.oschina.app.api.ApiHttpClient;
 import net.oschina.app.bean.NotebookData;
 import net.oschina.app.db.NoteDatabase;
 
-import org.apache.http.Header;
-import org.apache.http.entity.StringEntity;
+import cz.msebera.android.httpclient.Header;
+import cz.msebera.android.httpclient.entity.StringEntity;
+
 import org.apache.http.protocol.HTTP;
 import org.kymjs.kjframe.utils.KJLoger;
 import org.kymjs.kjframe.utils.SystemTool;
@@ -55,10 +56,10 @@ public class SynchronizeController {
     /**
      * GPRS环境下：使用二重循环遍历差异文件并更新云端文件达到同步
      * 
-     * @param localDatas
-     *            本地数据
-     * @param cloudDatas
-     *            云端数据
+     * @param
+     *
+     * @param
+     *
      */
     private void doSynchronizeWithGPRS() {}
 
@@ -137,7 +138,7 @@ public class SynchronizeController {
                         }
 
                     });
-        } catch (UnsupportedEncodingException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         ApiHttpClient.setHttpClient(client);

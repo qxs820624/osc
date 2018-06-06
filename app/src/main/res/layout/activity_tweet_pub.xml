@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <fragment
+    <FrameLayout
         android:id="@+id/tweet_content"
         android:name="net.oschina.app.fragment.TweetPubFragment"
         android:layout_width="match_parent"

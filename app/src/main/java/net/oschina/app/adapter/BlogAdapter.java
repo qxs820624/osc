@@ -14,7 +14,7 @@ import net.oschina.app.util.StringUtils;
 import net.oschina.app.util.ThemeSwitchUtils;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 /**
  * @author HuangWenwei
@@ -25,21 +25,21 @@ public class BlogAdapter extends ListBaseAdapter<Blog> {
 
     static class ViewHolder {
 
-        @InjectView(R.id.tv_title)
+        @BindView(R.id.tv_title)
         TextView title;
-        @InjectView(R.id.tv_description)
+        @BindView(R.id.tv_description)
         TextView description;
-        @InjectView(R.id.tv_source)
+        @BindView(R.id.tv_source)
         TextView source;
-        @InjectView(R.id.tv_time)
+        @BindView(R.id.tv_time)
         TextView time;
-        @InjectView(R.id.tv_comment_count)
+        @BindView(R.id.tv_comment_count)
         TextView comment_count;
-        @InjectView(R.id.iv_tip)
+        @BindView(R.id.iv_tip)
         ImageView tip;
 
         public ViewHolder(View view) {
-            ButterKnife.inject(this, view);
+            ButterKnife.bind(this, view);
         }
     }
 

@@ -36,7 +36,7 @@ import org.kymjs.kjframe.bitmap.BitmapHelper;
 import org.kymjs.kjframe.utils.DensityUtils;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 public class ActiveAdapter extends ListBaseAdapter {
     private final static String AT_HOST_PRE = "http://my.oschina.net";
@@ -195,33 +195,33 @@ public class ActiveAdapter extends ListBaseAdapter {
     }
 
     static class ViewHolder {
-        @InjectView(R.id.tv_name)
+        @BindView(R.id.tv_name)
         TextView name;
-        @InjectView(R.id.tv_from)
+        @BindView(R.id.tv_from)
         TextView from;
-        @InjectView(R.id.tv_time)
+        @BindView(R.id.tv_time)
         TextView time;
-        @InjectView(R.id.tv_action)
+        @BindView(R.id.tv_action)
         TextView action;
-        @InjectView(R.id.tv_action_name)
+        @BindView(R.id.tv_action_name)
         TextView actionName;
-        @InjectView(R.id.tv_comment_count)
+        @BindView(R.id.tv_comment_count)
         TextView commentCount;
-        // @InjectView(R.id.tv_reply_content)
+        // @BindView(R.id.tv_reply_content)
         // TextView retweetCount;
-        @InjectView(R.id.tv_body)
+        @BindView(R.id.tv_body)
         TweetTextView body;
-        @InjectView(R.id.tv_reply)
+        @BindView(R.id.tv_reply)
         TweetTextView reply;
-        @InjectView(R.id.iv_pic)
+        @BindView(R.id.iv_pic)
         ImageView pic;
-        @InjectView(R.id.ly_reply)
+        @BindView(R.id.ly_reply)
         View lyReply;
-        @InjectView(R.id.iv_avatar)
+        @BindView(R.id.iv_avatar)
         AvatarView avatar;
 
         public ViewHolder(View view) {
-            ButterKnife.inject(this, view);
+            ButterKnife.bind(this, view);
         }
     }
 }

@@ -38,7 +38,7 @@ import net.oschina.app.ui.ShareDialog;
 import net.oschina.app.ui.SimpleBackActivity;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 /**
  * 浏览器界面
@@ -47,19 +47,19 @@ import butterknife.InjectView;
  */
 @SuppressLint("NewApi")
 public class BrowserFragment extends BaseFragment {
-    @InjectView(R.id.webview)
+    @BindView(R.id.webview)
     WebView mWebView;
-    @InjectView(R.id.browser_back)
+    @BindView(R.id.browser_back)
     ImageView mImgBack;
-    @InjectView(R.id.browser_forward)
+    @BindView(R.id.browser_forward)
     ImageView mImgForward;
-    @InjectView(R.id.browser_refresh)
+    @BindView(R.id.browser_refresh)
     ImageView mImgRefresh;
-    @InjectView(R.id.browser_system_browser)
+    @BindView(R.id.browser_system_browser)
     ImageView mImgSystemBrowser;
-    @InjectView(R.id.browser_bottom)
+    @BindView(R.id.browser_bottom)
     LinearLayout mLayoutBottom;
-    @InjectView(R.id.progress)
+    @BindView(R.id.progress)
     ProgressBar mProgress;
 
     public static final String BROWSER_KEY = "browser_url";
@@ -151,7 +151,7 @@ public class BrowserFragment extends BaseFragment {
         View rootView = inflater.inflate(R.layout.fragment_browser, container,
                 false);
         aty = getActivity();
-        ButterKnife.inject(this, rootView);
+        ButterKnife.bind(this, rootView);
         initData();
         initView(rootView);
         return rootView;

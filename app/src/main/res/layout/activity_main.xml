@@ -53,7 +53,7 @@
 
     <!-- 左侧侧滑菜单 -->
 
-    <fragment
+    <FrameLayout
         android:id="@+id/navigation_drawer"
         android:name="net.oschina.app.ui.NavigationDrawerFragment"
         android:layout_width="@dimen/navigation_drawer_width"

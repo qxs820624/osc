@@ -15,9 +15,9 @@ import net.oschina.app.bean.LoginUserBean;
 import net.oschina.app.util.DialogHelp;
 import net.oschina.app.util.XmlUtils;
 
-import org.apache.http.Header;
+import cz.msebera.android.httpclient.Header;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
@@ -26,9 +26,9 @@ import butterknife.OnClick;
  */
 public class LoginAccountBindOpenIdActivity extends BaseActivity {
 
-    @InjectView(R.id.et_username)
+    @BindView(R.id.et_username)
     EditText etUsername;
-    @InjectView(R.id.et_password)
+    @BindView(R.id.et_password)
     EditText etPassword;
 
     private String catalog;

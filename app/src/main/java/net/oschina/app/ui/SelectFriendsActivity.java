@@ -51,7 +51,7 @@ import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat;
 import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
 import net.sourceforge.pinyin4j.format.HanyuPinyinVCharType;
 
-import org.apache.http.Header;
+import cz.msebera.android.httpclient.Header;
 
 import java.io.ByteArrayInputStream;
 import java.io.Serializable;
@@ -61,7 +61,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 
 /**
  * <p>Created 15/8/26 上午11:45.</p>
@@ -85,46 +85,46 @@ public class SelectFriendsActivity extends BaseActivity {
 
     private static final String CACHE_KEY_PREFIX = "friend_list_all";
 
-    @InjectView(R.id.lv_list)
+    @BindView(R.id.lv_list)
     ListView mListView;
 
-    @InjectView(R.id.error_layout)
+    @BindView(R.id.error_layout)
     EmptyLayout mEmptyLayout;
 
-    @InjectView(R.id.search_list)
+    @BindView(R.id.search_list)
     ListView mSearchListView;
 
-    @InjectView(R.id.et_search)
+    @BindView(R.id.et_search)
     EditText mSearchEditText;
 
-    @InjectView(R.id.float_text)
+    @BindView(R.id.float_text)
     TextView mFloatTextView;
 
-    @InjectView(R.id.indexview)
+    @BindView(R.id.indexview)
     IndexView mIndexView;
 
-    @InjectView(R.id.top_layout)
+    @BindView(R.id.top_layout)
     View topLayout;
 
-    @InjectView(R.id.hs_container)
+    @BindView(R.id.hs_container)
     HorizontalScrollView mHorizontalScrollView;
 
-    @InjectView(R.id.select_container)
+    @BindView(R.id.select_container)
     ViewGroup mSelectContainer;
 
-    @InjectView(R.id.search_layout)
+    @BindView(R.id.search_layout)
     View mSearchLayout;
 
-    @InjectView(R.id.search_result_text)
+    @BindView(R.id.search_result_text)
     View mSearchResultText;
 
-    @InjectView(R.id.iv_search)
+    @BindView(R.id.iv_search)
     View mSearchIcon;
 
-    @InjectView(R.id.divider1)
+    @BindView(R.id.divider1)
     View mDividerView1;
 
-    @InjectView(R.id.divider2)
+    @BindView(R.id.divider2)
     View mDividerView2;
 
     private TextView mTopRightButton;

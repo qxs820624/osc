@@ -37,12 +37,12 @@ import net.oschina.app.util.DialogHelp;
 import net.oschina.app.util.TypefaceUtils;
 import net.oschina.app.util.XmlUtils;
 
-import org.apache.http.Header;
+import cz.msebera.android.httpclient.Header;
 
 import java.util.Calendar;
 import java.util.List;
 
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
@@ -50,30 +50,30 @@ import butterknife.OnClick;
  */
 public class TeamNewIssueActivity extends BaseActivity {
 
-    @InjectView(R.id.et_issue_title)
+    @BindView(R.id.et_issue_title)
     EditText mEtTitle;
 
-    @InjectView(R.id.tv_issue_project)
+    @BindView(R.id.tv_issue_project)
     TextView mTvProject;
 
-    @InjectView(R.id.tv_issue_catalog)
+    @BindView(R.id.tv_issue_catalog)
     TextView mTvCatalog;
 
-    @InjectView(R.id.tv_issue_touser)
+    @BindView(R.id.tv_issue_touser)
     TextView mTvToUser;
 
-    @InjectView(R.id.tv_issue_time)
+    @BindView(R.id.tv_issue_time)
     TextView mTvTime;
 
-    @InjectView(R.id.rl_issue_push)
+    @BindView(R.id.rl_issue_push)
     View mRlGitPush;
-    @InjectView(R.id.push_line)
+    @BindView(R.id.push_line)
     View mPushLine;
 
-    @InjectView(R.id.tv_issue_push_source)
+    @BindView(R.id.tv_issue_push_source)
     TextView mTvPushSource;
 
-    @InjectView(R.id.cb_issue_push_check)
+    @BindView(R.id.cb_issue_push_check)
     CheckBox mCbPush;
 
     private Team mTeam;

@@ -13,21 +13,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 public class AboutOSCFragment extends BaseFragment {
 
-    @InjectView(R.id.tv_version)
+    @BindView(R.id.tv_version)
     TextView mTvVersionStatus;
 
-    @InjectView(R.id.tv_version_name)
+    @BindView(R.id.tv_version_name)
     TextView mTvVersionName;
 
     @Override
     public View onCreateView(LayoutInflater inflater,
             @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_about, container, false);
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
         initView(view);
         initData();
         return view;

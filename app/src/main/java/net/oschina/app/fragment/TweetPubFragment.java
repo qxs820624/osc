@@ -60,7 +60,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 public class TweetPubFragment extends BaseFragment implements
         OnEmojiClickListener {
@@ -81,28 +81,28 @@ public class TweetPubFragment extends BaseFragment implements
 
     private String fromSharedTextContent = "";
 
-    @InjectView(R.id.ib_emoji_keyboard)
+    @BindView(R.id.ib_emoji_keyboard)
     ImageButton mIbEmoji;
 
-    @InjectView(R.id.ib_picture)
+    @BindView(R.id.ib_picture)
     ImageButton mIbPicture;
 
-    @InjectView(R.id.ib_mention)
+    @BindView(R.id.ib_mention)
     ImageButton mIbMention;
 
-    @InjectView(R.id.ib_trend_software)
+    @BindView(R.id.ib_trend_software)
     ImageButton mIbTrendSoftware;
 
-    @InjectView(R.id.tv_clear)
+    @BindView(R.id.tv_clear)
     TextView mTvClear;
 
-    @InjectView(R.id.rl_img)
+    @BindView(R.id.rl_img)
     View mLyImage;
 
-    @InjectView(R.id.iv_img)
+    @BindView(R.id.iv_img)
     ImageView mIvImage;
 
-    @InjectView(R.id.et_content)
+    @BindView(R.id.et_content)
     EditText mEtInput;
 
     private MenuItem mSendMenu;
@@ -306,7 +306,7 @@ public class TweetPubFragment extends BaseFragment implements
     @Override
     public void initView(View view) {
         super.initView(view);
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
         setHasOptionsMenu(true);
         mIbEmoji.setOnClickListener(this);
         mIbPicture.setOnClickListener(this);

@@ -2,7 +2,7 @@ package net.oschina.app.api;
 
 import java.io.ByteArrayInputStream;
 
-import org.apache.http.Header;
+import cz.msebera.android.httpclient.Header;
 
 import android.os.Looper;
 

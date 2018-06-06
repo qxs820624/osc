@@ -16,10 +16,10 @@ import com.loopj.android.http.RequestParams;
 
 public class ApiHttpClient {
 
-//    public final static String HOST = "www.oschina.net";
-//    private static String API_URL = "http://www.oschina.net/%s";
-     public final static String HOST = "192.168.1.107";
-     private static String API_URL = "http://192.168.1.107/%s";
+    public final static String HOST = "www.oschina.net";
+    private static String API_URL = "http://www.oschina.net/%s";
+//     public final static String HOST = "175.6.15.201";
+//     private static String API_URL = "http://175.6.15.201/%s";
     public static final String DELETE = "DELETE";
     public static final String GET = "GET";
     public static final String POST = "POST";

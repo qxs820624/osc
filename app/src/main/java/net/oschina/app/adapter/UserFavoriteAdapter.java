@@ -7,16 +7,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 public class UserFavoriteAdapter extends ListBaseAdapter<Favorite> {
 	
 	static class ViewHolder {
 		
-		@InjectView(R.id.tv_favorite_title) TextView title;
+		@BindView(R.id.tv_favorite_title) TextView title;
 		
 		public ViewHolder(View view) {
-			ButterKnife.inject(this,view);
+			ButterKnife.bind(this,view);
 		}
 	}
 

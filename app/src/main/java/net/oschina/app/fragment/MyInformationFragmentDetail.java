@@ -34,7 +34,7 @@ import net.oschina.app.util.StringUtils;
 import net.oschina.app.util.UIHelper;
 import net.oschina.app.util.XmlUtils;
 
-import org.apache.http.Header;
+import cz.msebera.android.httpclient.Header;
 import org.kymjs.kjframe.KJBitmap;
 
 import java.io.ByteArrayInputStream;
@@ -44,7 +44,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
@@ -59,25 +59,25 @@ public class MyInformationFragmentDetail extends BaseFragment {
     public static final int ACTION_TYPE_ALBUM = 0;
     public static final int ACTION_TYPE_PHOTO = 1;
 
-    @InjectView(R.id.iv_avatar)
+    @BindView(R.id.iv_avatar)
     ImageView mUserFace;
 
-    @InjectView(R.id.tv_name)
+    @BindView(R.id.tv_name)
     TextView mName;
 
-    @InjectView(R.id.tv_join_time)
+    @BindView(R.id.tv_join_time)
     TextView mJoinTime;
 
-    @InjectView(R.id.tv_location)
+    @BindView(R.id.tv_location)
     TextView mFrom;
 
-    @InjectView(R.id.tv_development_platform)
+    @BindView(R.id.tv_development_platform)
     TextView mPlatFrom;
 
-    @InjectView(R.id.tv_academic_focus)
+    @BindView(R.id.tv_academic_focus)
     TextView mFocus;
 
-    @InjectView(R.id.error_layout)
+    @BindView(R.id.error_layout)
     EmptyLayout mErrorLayout;
 
     private User mUser;
@@ -189,7 +189,7 @@ public class MyInformationFragmentDetail extends BaseFragment {
 
     @Override
     public void initView(View view) {
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
         mErrorLayout.setOnLayoutClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

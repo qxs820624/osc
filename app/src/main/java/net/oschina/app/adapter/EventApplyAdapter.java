@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 /**
  * 活动参会人员适配器
@@ -48,18 +48,18 @@ public class EventApplyAdapter extends ListBaseAdapter<Apply> {
 
     static class ViewHolder {
 
-        @InjectView(R.id.tv_name)
+        @BindView(R.id.tv_name)
         TextView name;
-        @InjectView(R.id.tv_desc)
+        @BindView(R.id.tv_desc)
         TextView desc;
-        @InjectView(R.id.tv_from) TextView from;
-        @InjectView(R.id.iv_gender)
+        @BindView(R.id.tv_from) TextView from;
+        @BindView(R.id.iv_gender)
         ImageView gender;
-        @InjectView(R.id.iv_avatar)
+        @BindView(R.id.iv_avatar)
         AvatarView avatar;
 
         public ViewHolder(View view) {
-            ButterKnife.inject(this, view);
+            ButterKnife.bind(this, view);
         }
     }
 }

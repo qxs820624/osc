@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.BindView;
 
 public class SearchAdapter extends ListBaseAdapter<SearchResult> {
 
@@ -56,15 +56,15 @@ public class SearchAdapter extends ListBaseAdapter<SearchResult> {
 	}
 
 	static class ViewHolder {
-		@InjectView(R.id.tv_title)TextView title;
-		@InjectView(R.id.tv_description)TextView description;
-		@InjectView(R.id.tv_source)TextView source;
-		@InjectView(R.id.tv_time)TextView time;
-		@InjectView(R.id.tv_comment_count)TextView comment_count;
-		@InjectView(R.id.iv_tip)ImageView tip;
+		@BindView(R.id.tv_title)TextView title;
+		@BindView(R.id.tv_description)TextView description;
+		@BindView(R.id.tv_source)TextView source;
+		@BindView(R.id.tv_time)TextView time;
+		@BindView(R.id.tv_comment_count)TextView comment_count;
+		@BindView(R.id.iv_tip)ImageView tip;
 
 		public ViewHolder(View view) {
-			ButterKnife.inject(this, view);
+			ButterKnife.bind(this, view);
 		}
 	}
 }
